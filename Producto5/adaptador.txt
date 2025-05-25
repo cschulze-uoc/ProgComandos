@@ -1,0 +1,7 @@
+========================================
+CONFIGURACION DEL ADAPTADOR: Adaptador de LAN inal mbrica Wi-Fi:
+========================================
+   Direcci¢n IPv4. . . . . . . . . . . . . . : 192.168.0.46
+   M scara de subred . . . . . . . . . . . . : 255.255.255.0
+   Puerta de enlace predeterminada . . . . . : 192.168.0.1
+========================================

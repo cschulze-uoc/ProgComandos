@@ -1,0 +1,330 @@
+
+<!-- saved from url=(0078)https://www.w3schools.com/xml/tryxslt.asp?xmlfile=cdcatalog&xsltfile=cdcatalog -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>XSLT Tryit Editor v1.2</title>
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./Configuracion_files/w3.css">
+<!--
+<link rel="stylesheet" type="text/css" href="/trystyle.css" />-->
+<!-- Google Tag Manager -->
+<script async="" src="./Configuracion_files/gtm.js.descarga"></script><script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KTCFC3S');
+</script>
+<!-- End Google Tag Manager -->
+<script async="async" type="text/javascript" src="https://static.h-bid.com/w3schools.com/20190110/snhb-w3schools.min.js"></script>
+<script>
+var snhb = snhb || {}; snhb.queue = snhb.queue || [];
+snhb.options = { autoStartAuction: false };
+snhb.queue.push(function(){ snhb.startAuction(["try_it_leaderboard"]); });
+</script>
+<script>
+if (window.addEventListener) {              
+    window.addEventListener("resize", browserResize);
+} else if (window.attachEvent) {                 
+    window.attachEvent("onresize", browserResize);
+}
+var xbeforeResize = window.innerWidth;
+
+function browserResize() {
+    var afterResize = window.innerWidth;
+    if ((xbeforeResize < (970) && afterResize >= (970)) || (xbeforeResize >= (970) && afterResize < (970)) ||
+        (xbeforeResize < (728) && afterResize >= (728)) || (xbeforeResize >= (728) && afterResize < (728)) ||
+        (xbeforeResize < (468) && afterResize >= (468)) ||(xbeforeResize >= (468) && afterResize < (468))) {
+        xbeforeResize = afterResize;
+        snhb.queue.push(function(){  snhb.startAuction(["try_it_leaderboard"]); });
+    }
+}
+</script>
+<script type="text/javascript">
+function submitReady()
+{
+var t=document.getElementById("pre_xslt_input").value;
+t = t.replace("&", "&amp;");
+document.getElementById("xslt_input").value=t;
+document.forms["codeform"]["submitOK"].value="OK"
+}
+</script>
+<style>
+#tryitLeaderboard {
+  overflow:hidden;
+  text-align:center;
+  margin-top:5px;
+  height:90px;
+}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTCFC3S"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<div id="tryitLeaderboard" style="text-align:center;">
+  <!-- TryitLeaderboard -->
+  <div id="snhb-try_it_leaderboard-0"></div>
+  <!-- adspace tryit-->
+</div>
+
+<form name="codeform" id="codeform" class="xw3-light-grey w3-margin-top" action="https://www.w3schools.com/xml/tryxslt_result.asp" method="post" target="view">
+
+<div class="w3-row-padding">
+  <div class="w3-col l6">
+XML Code:
+<textarea style="width:100%;height:350px" class="w3-code" id="xml_input" name="xml_input" wrap="logical">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;catalog&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Empire Burlesque&lt;/title&gt;
+    &lt;artist&gt;Bob Dylan&lt;/artist&gt;
+    &lt;country&gt;USA&lt;/country&gt;
+    &lt;company&gt;Columbia&lt;/company&gt;
+    &lt;price&gt;10.90&lt;/price&gt;
+    &lt;year&gt;1985&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Hide your heart&lt;/title&gt;
+    &lt;artist&gt;Bonnie Tyler&lt;/artist&gt;
+    &lt;country&gt;UK&lt;/country&gt;
+    &lt;company&gt;CBS Records&lt;/company&gt;
+    &lt;price&gt;9.90&lt;/price&gt;
+    &lt;year&gt;1988&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Greatest Hits&lt;/title&gt;
+    &lt;artist&gt;Dolly Parton&lt;/artist&gt;
+    &lt;country&gt;USA&lt;/country&gt;
+    &lt;company&gt;RCA&lt;/company&gt;
+    &lt;price&gt;9.90&lt;/price&gt;
+    &lt;year&gt;1982&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Still got the blues&lt;/title&gt;
+    &lt;artist&gt;Gary Moore&lt;/artist&gt;
+    &lt;country&gt;UK&lt;/country&gt;
+    &lt;company&gt;Virgin records&lt;/company&gt;
+    &lt;price&gt;10.20&lt;/price&gt;
+    &lt;year&gt;1990&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Eros&lt;/title&gt;
+    &lt;artist&gt;Eros Ramazzotti&lt;/artist&gt;
+    &lt;country&gt;EU&lt;/country&gt;
+    &lt;company&gt;BMG&lt;/company&gt;
+    &lt;price&gt;9.90&lt;/price&gt;
+    &lt;year&gt;1997&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;One night only&lt;/title&gt;
+    &lt;artist&gt;Bee Gees&lt;/artist&gt;
+    &lt;country&gt;UK&lt;/country&gt;
+    &lt;company&gt;Polydor&lt;/company&gt;
+    &lt;price&gt;10.90&lt;/price&gt;
+    &lt;year&gt;1998&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Sylvias Mother&lt;/title&gt;
+    &lt;artist&gt;Dr.Hook&lt;/artist&gt;
+    &lt;country&gt;UK&lt;/country&gt;
+    &lt;company&gt;CBS&lt;/company&gt;
+    &lt;price&gt;8.10&lt;/price&gt;
+    &lt;year&gt;1973&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Maggie May&lt;/title&gt;
+    &lt;artist&gt;Rod Stewart&lt;/artist&gt;
+    &lt;country&gt;UK&lt;/country&gt;
+    &lt;company&gt;Pickwick&lt;/company&gt;
+    &lt;price&gt;8.50&lt;/price&gt;
+    &lt;year&gt;1990&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Romanza&lt;/title&gt;
+    &lt;artist&gt;Andrea Bocelli&lt;/artist&gt;
+    &lt;country&gt;EU&lt;/country&gt;
+    &lt;company&gt;Polydor&lt;/company&gt;
+    &lt;price&gt;10.80&lt;/price&gt;
+    &lt;year&gt;1996&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;When a man loves a woman&lt;/title&gt;
+    &lt;artist&gt;Percy Sledge&lt;/artist&gt;
+    &lt;country&gt;USA&lt;/country&gt;
+    &lt;company&gt;Atlantic&lt;/company&gt;
+    &lt;price&gt;8.70&lt;/price&gt;
+    &lt;year&gt;1987&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Black angel&lt;/title&gt;
+    &lt;artist&gt;Savage Rose&lt;/artist&gt;
+    &lt;country&gt;EU&lt;/country&gt;
+    &lt;company&gt;Mega&lt;/company&gt;
+    &lt;price&gt;10.90&lt;/price&gt;
+    &lt;year&gt;1995&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;1999 Grammy Nominees&lt;/title&gt;
+    &lt;artist&gt;Many&lt;/artist&gt;
+    &lt;country&gt;USA&lt;/country&gt;
+    &lt;company&gt;Grammy&lt;/company&gt;
+    &lt;price&gt;10.20&lt;/price&gt;
+    &lt;year&gt;1999&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;For the good times&lt;/title&gt;
+    &lt;artist&gt;Kenny Rogers&lt;/artist&gt;
+    &lt;country&gt;UK&lt;/country&gt;
+    &lt;company&gt;Mucik Master&lt;/company&gt;
+    &lt;price&gt;8.70&lt;/price&gt;
+    &lt;year&gt;1995&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Big Willie style&lt;/title&gt;
+    &lt;artist&gt;Will Smith&lt;/artist&gt;
+    &lt;country&gt;USA&lt;/country&gt;
+    &lt;company&gt;Columbia&lt;/company&gt;
+    &lt;price&gt;9.90&lt;/price&gt;
+    &lt;year&gt;1997&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Tupelo Honey&lt;/title&gt;
+    &lt;artist&gt;Van Morrison&lt;/artist&gt;
+    &lt;country&gt;UK&lt;/country&gt;
+    &lt;company&gt;Polydor&lt;/company&gt;
+    &lt;price&gt;8.20&lt;/price&gt;
+    &lt;year&gt;1971&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Soulsville&lt;/title&gt;
+    &lt;artist&gt;Jorn Hoel&lt;/artist&gt;
+    &lt;country&gt;Norway&lt;/country&gt;
+    &lt;company&gt;WEA&lt;/company&gt;
+    &lt;price&gt;7.90&lt;/price&gt;
+    &lt;year&gt;1996&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;The very best of&lt;/title&gt;
+    &lt;artist&gt;Cat Stevens&lt;/artist&gt;
+    &lt;country&gt;UK&lt;/country&gt;
+    &lt;company&gt;Island&lt;/company&gt;
+    &lt;price&gt;8.90&lt;/price&gt;
+    &lt;year&gt;1990&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Stop&lt;/title&gt;
+    &lt;artist&gt;Sam Brown&lt;/artist&gt;
+    &lt;country&gt;UK&lt;/country&gt;
+    &lt;company&gt;A and M&lt;/company&gt;
+    &lt;price&gt;8.90&lt;/price&gt;
+    &lt;year&gt;1988&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Bridge of Spies&lt;/title&gt;
+    &lt;artist&gt;T`Pau&lt;/artist&gt;
+    &lt;country&gt;UK&lt;/country&gt;
+    &lt;company&gt;Siren&lt;/company&gt;
+    &lt;price&gt;7.90&lt;/price&gt;
+    &lt;year&gt;1987&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Private Dancer&lt;/title&gt;
+    &lt;artist&gt;Tina Turner&lt;/artist&gt;
+    &lt;country&gt;UK&lt;/country&gt;
+    &lt;company&gt;Capitol&lt;/company&gt;
+    &lt;price&gt;8.90&lt;/price&gt;
+    &lt;year&gt;1983&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Midt om natten&lt;/title&gt;
+    &lt;artist&gt;Kim Larsen&lt;/artist&gt;
+    &lt;country&gt;EU&lt;/country&gt;
+    &lt;company&gt;Medley&lt;/company&gt;
+    &lt;price&gt;7.80&lt;/price&gt;
+    &lt;year&gt;1983&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Pavarotti Gala Concert&lt;/title&gt;
+    &lt;artist&gt;Luciano Pavarotti&lt;/artist&gt;
+    &lt;country&gt;UK&lt;/country&gt;
+    &lt;company&gt;DECCA&lt;/company&gt;
+    &lt;price&gt;9.90&lt;/price&gt;
+    &lt;year&gt;1991&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;The dock of the bay&lt;/title&gt;
+    &lt;artist&gt;Otis Redding&lt;/artist&gt;
+    &lt;country&gt;USA&lt;/country&gt;
+    &lt;company&gt;Stax Records&lt;/company&gt;
+    &lt;price&gt;7.90&lt;/price&gt;
+    &lt;year&gt;1968&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Picture book&lt;/title&gt;
+    &lt;artist&gt;Simply Red&lt;/artist&gt;
+    &lt;country&gt;EU&lt;/country&gt;
+    &lt;company&gt;Elektra&lt;/company&gt;
+    &lt;price&gt;7.20&lt;/price&gt;
+    &lt;year&gt;1985&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Red&lt;/title&gt;
+    &lt;artist&gt;The Communards&lt;/artist&gt;
+    &lt;country&gt;UK&lt;/country&gt;
+    &lt;company&gt;London&lt;/company&gt;
+    &lt;price&gt;7.80&lt;/price&gt;
+    &lt;year&gt;1987&lt;/year&gt;
+  &lt;/cd&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Unchain my heart&lt;/title&gt;
+    &lt;artist&gt;Joe Cocker&lt;/artist&gt;
+    &lt;country&gt;USA&lt;/country&gt;
+    &lt;company&gt;EMI&lt;/company&gt;
+    &lt;price&gt;8.20&lt;/price&gt;
+    &lt;year&gt;1987&lt;/year&gt;
+  &lt;/cd&gt;
+&lt;/catalog&gt;
+
+</textarea>
+  </div>
+  <div class="w3-col l6">
+XSLT Code:  
+<textarea style="width:100%;height:350px" class="w3-code" id="pre_xslt_input" name="pre_xslt_input" wrap="logical">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+&lt;xsl:template match="/"&gt;
+&lt;html&gt; 
+&lt;body&gt;
+  &lt;h2&gt;My CD Collection&lt;/h2&gt;
+  &lt;table border="1"&gt;
+    &lt;tr bgcolor="#9acd32"&gt;
+      &lt;th style="text-align:left"&gt;Title&lt;/th&gt;
+      &lt;th style="text-align:left"&gt;Artist&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;xsl:for-each select="catalog/cd"&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;xsl:value-of select="title"/&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;xsl:value-of select="artist"/&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/xsl:for-each&gt;
+  &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+
+</textarea>
+<textarea style="display:none" id="xslt_input" name="xslt_input" wrap="logical"></textarea>
+<input type="hidden" name="submitOK" id="submitOK" value="OK">
+</div>
+</div>
+<div class="w3-container">
+<input type="submit" onclick="submitReady()" class="w3-btn w3-green w3-margin-bottom" value="Edit the XML or XSLT code above and Click Me »">
+<iframe class="result_output" style="width:100%;height:100%;background-color:#ffffff;border:1px solid rgb(169, 169, 169);" frameborder="0" name="view" src="./Configuracion_files/tryxslt_result.html"></iframe>
+</div>
+</form>
+
+
+</body></html>

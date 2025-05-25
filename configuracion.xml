@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="transformacion.xsl"?>
+<?xml-stylesheet type="text/xsl" href="transformacion.xsl"?>
+<?xml-stylesheet type="text/xsl" href="transformacion.xsl"?>
+<?xml-stylesheet type="text/xsl" href="transformacion.xsl"?>
+<?xml-stylesheet type="text/xsl" href="transformacion.xsl"?>
+<Configuracion>
+  <Adaptador>Wi-Fi</Adaptador>
+  <IP>192.168.0.46(Preferido) </IP>
+  <Mascara>255.255.255.0</Mascara>
+  <PuertaDeEnlace>192.168.0.1</PuertaDeEnlace>
+  <DNS>8.8.8.8</DNS>
+  <LatenciaDNS>21</LatenciaDNS>
+  <SaltosDNS cantidad="10">
+    <Salto ip="192.168.0.1" />
+    <Salto ip="No disponible" />
+    <Salto ip="87.216.6.72" />
+    <Salto ip="193.251.251.206" />
+    <Salto ip="193.251.251.207" />
+    <Salto ip="193.251.129.205" />
+    <Salto ip="74.125.48.64" />
+    <Salto ip="74.125.245.171" />
+    <Salto ip="142.251.51.143" />
+    <Salto ip="8.8.8.8" />
+  </SaltosDNS>
+</Configuracion>

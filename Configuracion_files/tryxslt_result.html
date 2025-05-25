@@ -1,0 +1,287 @@
+
+<!-- saved from url=(0048)https://www.w3schools.com/xml/tryxslt_result.asp -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+function transformxml()
+{
+if (window.ActiveXObject)
+ {
+ // IE
+
+ // XML:
+ var xmltxt
+ xmltxt=document.getElementById("xmlcode").value
+ if (xmltxt=="")
+  {
+  alert("The XML is empty")
+  return false;
+  }
+ xml=new ActiveXObject("MSXML2.DOMDocument");
+ xml.async=false
+ xml.loadXML(xmltxt)
+ if (xml.parseError.errorCode!=0)
+  {
+  document.write("Error in XML<br><br>Line " + xml.parseError.line + ": " + xml.parseError.reason);   
+  alert("Error in XML\n\nLine " + xml.parseError.line + ": " + xml.parseError.reason);
+  return false
+  }
+ // XSL:
+ var xsltxt
+ xsltxt=document.getElementById("xsltcode").value
+ if (xsltxt=="")
+  {
+  alert("The XSLT is empty")
+  return false
+  }
+ xsl=new ActiveXObject("Microsoft.XMLDOM")
+ xsl.async=false
+ xsl.loadXML(xsltxt)
+ if (xsl.parseError.errorCode!=0)
+  {
+  document.write("Error in XSLT<br><br>Line " + xsl.parseError.line + ": " + xsl.parseError.reason);     
+  alert("Error in XSLT\n\nLine " + xsl.parseError.line + ": " + xsl.parseError.reason);
+  return false
+  }
+
+ // Transform:
+ document.write(xml.transformNode(xsl));     
+ }
+else if (document.implementation && document.implementation.createDocument)
+ {
+ // Mozilla
+ // XML:
+ var xmltxt
+ xmltxt=document.getElementById("xmlcode").value
+ if (xmltxt=="")
+  {
+  alert("The XML is empty")
+  return false
+  }
+ var doc=new DOMParser();
+ var xml=doc.parseFromString(xmltxt,"text/xml");
+ if (xml.documentElement.nodeName=="parsererror")
+  {
+  document.write("Error in XML<br><br>" + xml.documentElement.childNodes[0].nodeValue);
+  alert("Error in XML\n\n" + xml.documentElement.childNodes[0].nodeValue);
+  return false;
+  }
+ // XSL:
+ var xsltPrs=new XSLTProcessor();
+ var xsltxt
+ xsltxt=document.getElementById("xsltcode").value
+ if (xsltxt=="")
+  {
+  alert("The XSLT is empty")
+  return false
+  }
+ xsl=doc.parseFromString(xsltxt,"text/xml");
+ if (xsl.documentElement.nodeName=="parsererror")
+  {
+  document.write("Error in XSLT<br><br>" + xsl.documentElement.childNodes[0].nodeValue);  
+  alert("Error in XSLT\n\n" + xsl.documentElement.childNodes[0].nodeValue);
+  return false;
+  }
+
+ xsltPrs.importStylesheet(xsl);
+  
+ // Transform:
+ var result=xsltPrs.transformToFragment(xml,document);
+   document.getElementById("result_output").appendChild(result);
+// document.replaceChild(result,window.document.childNodes[0])
+ }
+else
+ {
+ // No Browser support:
+ alert("Your browser does not support this example.");
+ }
+}
+</script>
+</head>
+
+<body onload="transformxml()">
+<div id="result_output">
+
+
+<title>Configuraci&#65533;n de Red</title>
+<style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 40px;
+      background-color: #f4f6f8;
+      color: #333;
+    }
+    h2 {
+      color: #004080;
+      margin-bottom: 10px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 600px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      background-color: #fff;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #004080;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    ol {
+      margin-top: 20px;
+      background-color: #fff;
+      padding: 30px;
+      border: 1px solid #ccc;
+      width: 540px;
+    }
+  </style>
+
+
+<h2>Configuraci&#65533;n de Red</h2>
+<table>
+<tbody><tr>
+<th>Campo</th>
+<th>Valor</th>
+</tr>
+<tr>
+<td>Adaptador</td>
+<td>Wi-Fi</td>
+</tr>
+<tr>
+<td>IP</td>
+<td>192.168.0.46(Preferido) </td>
+</tr>
+<tr>
+<td>M&#65533;scara</td>
+<td>255.255.255.0</td>
+</tr>
+<tr>
+<td>Puerta de Enlace</td>
+<td>192.168.0.1</td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>8.8.8.8</td>
+</tr>
+<tr>
+<td>Latencia DNS</td>
+<td>21 ms</td>
+</tr>
+</tbody></table>
+<h2>Saltos hasta el DNS</h2>
+<ol>
+<li>192.168.0.1</li>
+<li>No disponible</li>
+<li>87.216.6.72</li>
+<li>193.251.251.206</li>
+<li>193.251.251.207</li>
+<li>193.251.129.205</li>
+<li>74.125.48.64</li>
+<li>74.125.245.171</li>
+<li>142.251.51.143</li>
+<li>8.8.8.8</li>
+</ol>
+
+</div>
+<textarea id="xmlcode" style="display:none">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="transformacion.xsl"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="transformacion.xsl"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="transformacion.xsl"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="transformacion.xsl"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="transformacion.xsl"?&gt;
+&lt;Configuracion&gt;
+  &lt;Adaptador&gt;Wi-Fi&lt;/Adaptador&gt;
+  &lt;IP&gt;192.168.0.46(Preferido) &lt;/IP&gt;
+  &lt;Mascara&gt;255.255.255.0&lt;/Mascara&gt;
+  &lt;PuertaDeEnlace&gt;192.168.0.1&lt;/PuertaDeEnlace&gt;
+  &lt;DNS&gt;8.8.8.8&lt;/DNS&gt;
+  &lt;LatenciaDNS&gt;21&lt;/LatenciaDNS&gt;
+  &lt;SaltosDNS cantidad="10"&gt;
+    &lt;Salto ip="192.168.0.1" /&gt;
+    &lt;Salto ip="No disponible" /&gt;
+    &lt;Salto ip="87.216.6.72" /&gt;
+    &lt;Salto ip="193.251.251.206" /&gt;
+    &lt;Salto ip="193.251.251.207" /&gt;
+    &lt;Salto ip="193.251.129.205" /&gt;
+    &lt;Salto ip="74.125.48.64" /&gt;
+    &lt;Salto ip="74.125.245.171" /&gt;
+    &lt;Salto ip="142.251.51.143" /&gt;
+    &lt;Salto ip="8.8.8.8" /&gt;
+  &lt;/SaltosDNS&gt;
+&lt;/Configuracion&gt;</textarea>
+<textarea id="xsltcode" style="display:none">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+&lt;xsl:output method="html" encoding="UTF-8" indent="yes"/&gt;
+&lt;xsl:template match="/"&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Configuraci&#65533;n de Red&lt;/title&gt;
+  &lt;style&gt;
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 40px;
+      background-color: #f4f6f8;
+      color: #333;
+    }
+    h2 {
+      color: #004080;
+      margin-bottom: 10px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 600px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      background-color: #fff;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #004080;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    ol {
+      margin-top: 20px;
+      background-color: #fff;
+      padding: 30px;
+      border: 1px solid #ccc;
+      width: 540px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Configuraci&#65533;n de Red&lt;/h2&gt;
+&lt;table&gt;
+&lt;tr&gt;&lt;th&gt;Campo&lt;/th&gt;&lt;th&gt;Valor&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Adaptador&lt;/td&gt;&lt;td&gt;&lt;xsl:value-of select="Configuracion/Adaptador"/&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;IP&lt;/td&gt;&lt;td&gt;&lt;xsl:value-of select="Configuracion/IP"/&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&#65533;scara&lt;/td&gt;&lt;td&gt;&lt;xsl:value-of select="Configuracion/Mascara"/&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Puerta de Enlace&lt;/td&gt;&lt;td&gt;&lt;xsl:value-of select="Configuracion/PuertaDeEnlace"/&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;DNS&lt;/td&gt;&lt;td&gt;&lt;xsl:value-of select="Configuracion/DNS"/&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Latencia DNS&lt;/td&gt;&lt;td&gt;&lt;xsl:value-of select="Configuracion/LatenciaDNS"/&gt; ms&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;h2&gt;Saltos hasta el DNS&lt;/h2&gt;
+&lt;ol&gt;
+&lt;xsl:for-each select="Configuracion/SaltosDNS/Salto"&gt;
+&lt;li&gt;&lt;xsl:value-of select="@ip"/&gt;&lt;/li&gt;
+&lt;/xsl:for-each&gt;
+&lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+</textarea>
+
+</body></html>
